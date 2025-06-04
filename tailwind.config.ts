@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -61,13 +62,29 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        // Added colors based on PRD
+        primaryText: 'hsl(var(--color-primary-text))', // For PRD: text-primaryText
+        secondaryText: 'hsl(var(--color-secondary-text))', // For PRD: text-secondaryText
+        success: {
+          DEFAULT: 'hsl(var(--color-success))', // PRD: success #10B981
+          foreground: 'hsl(var(--white))' // Assuming white text on success color
+        },
+        accentSecondary: {
+          DEFAULT: 'hsl(var(--color-accent-secondary))', // PRD: accentSecondary #48C774
+          foreground: 'hsl(var(--white))' // Assuming white text on accentSecondary color
+        }
 			},
 			borderRadius: {
+        // Default Shadcn/Radix border radius setup using CSS variable --radius
+        // --radius is set to 0.375rem (rounded-md) in index.css based on PRD
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
