@@ -4,54 +4,63 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Colors from PRD */
+    --background: 213 100% 98%; /* PRD: #F8FBFF */
+    --foreground: 210 9% 31%;   /* PRD: #495057 (primaryText) */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;           /* PRD: #FFFFFF (surface) */
+    --card-foreground: 210 9% 31%; /* PRD: #495057 (primaryText) */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;        /* PRD: #FFFFFF (surface) */
+    --popover-foreground: 210 9% 31%; /* PRD: #495057 (primaryText) */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 224 85% 65%;      /* PRD: #5C84F1 (accent) */
+    --primary-foreground: 0 0% 100%; /* Contrast for primary: #FFFFFF */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 100% 97%;  /* PRD: #EEF4FF (sidebar color, used as a secondary background tone) */
+    --secondary-foreground: 210 9% 31%; /* PRD: #495057 (primaryText, for text on secondary) */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 225 43% 90%;       /* PRD: #E7EAF3 (border color, used as a muted background tone) */
+    --muted-foreground: 208 8% 45%; /* PRD: #6C757D (secondaryText) */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 224 85% 65%;       /* PRD: #5C84F1 (accent, typically same as primary for Shadcn) */
+    --accent-foreground: 0 0% 100%; /* Contrast for accent: #FFFFFF */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;   /* PRD: #EF4444 (error) */
+    --destructive-foreground: 0 0% 100%; /* Contrast for destructive: #FFFFFF */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 225 43% 90%;       /* PRD: #E7EAF3 (border) */
+    --input: 225 43% 90%;        /* PRD: #E7EAF3 (border, for inputs) */
+    --ring: 224 85% 65%;         /* PRD: #5C84F1 (accent, for focus rings) */
 
-    --radius: 0.5rem;
+    --radius: 0.375rem; /* PRD: effects.borderRadius.default "rounded-md" (Tailwind's md) */
 
-    --sidebar-background: 0 0% 98%;
+    /* Typography */
+    --font-sans: "Inter", system-ui, sans-serif; /* PRD: typography.primaryFont */
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Additional PRD Named Colors (can be used for direct Tailwind classes or specific components) */
+    --color-primary-text: 210 9% 31%;    /* PRD: #495057 */
+    --color-secondary-text: 208 8% 45%;  /* PRD: #6C757D */
+    --color-accent-secondary: 145 58% 52%; /* PRD: #48C774 (accentSecondary) */
+    --color-success: 160 83% 39%;        /* PRD: #10B981 (success) */
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Utility Colors */
+    --white: 0 0% 100%;
+    --black: 0 0% 0%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar Specific Variables (Updated based on PRD) */
+    --sidebar-background: 220 100% 97%;          /* PRD: #EEF4FF (sidebar) */
+    --sidebar-foreground: 210 9% 31%;            /* PRD: #495057 (primaryText on sidebar) */
+    --sidebar-primary: 224 85% 65%;              /* PRD: #5C84F1 (accent for active items in sidebar) */
+    --sidebar-primary-foreground: 0 0% 100%;     /* Contrast: #FFFFFF */
+    --sidebar-accent: 223 100% 94%;              /* Derived subtle accent for hover, e.g., #E0E9FF */
+    --sidebar-accent-foreground: 210 9% 31%;     /* PRD: #495057 (primaryText on sidebar accent) */
+    --sidebar-border: 225 43% 90%;               /* PRD: #E7EAF3 (border) */
+    --sidebar-ring: 224 85% 65%;                 /* PRD: #5C84F1 (accent for focus rings in sidebar) */
   }
 
   .dark {
+    /* Dark mode variables remain as per existing file, as PRD does not specify dark mode */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -79,6 +88,8 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    /* Dark mode sidebar variables */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -87,6 +98,13 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Update PRD-specific named colors for dark mode if necessary, or they will inherit light */
+    /* For now, these are not explicitly defined for dark mode in PRD */
+    /* --color-primary-text: ...; */
+    /* --color-secondary-text: ...; */
+    /* --color-accent-secondary: ...; */
+    /* --color-success: ...; */
   }
 }
 
@@ -97,5 +115,8 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
